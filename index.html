@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organization Comparison Dashboard</title>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/vikaschauhan3/customization/main/styles.css">
-    <script src="https://raw.githubusercontent.com/vikaschauhan3/customization/main/script.js"></script>
+    <title>Sleek Pastel Emotion Wheel Challenge</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; text-align: center; background-color: #f5f5f5; color: #333; }
+        h1 { color: #4a4a4a; }
+        button { margin: 10px; padding: 12px 24px; cursor: pointer; background-color: #6c5ce7; color: white; border: none; border-radius: 25px; font-size: 16px; transition: background-color 0.3s; }
+        button:hover { background-color: #5b4bc4; }
+        button:disabled { background-color: #b3b3b3; cursor: not-allowed; }
+        #wheel-container { width: 300px; height: 300px; margin: 30px auto; position: relative; }
+        #wheel { width: 100%; height: 100%; border-radius: 50%; transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1); background: conic-gradient(
+            #fdcb6e 0deg 60deg,
+            #81ecec 60deg 120deg,
+            #74b9ff 120deg 180deg,
+            #fab1a0 180deg 240deg,
+            #55efc4 240deg 300deg,
+            #ffeaa7 300deg 360deg
+        ); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        #pointer { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 40px; }
+        #scenario, #feedback, #eiTechnique { background-color: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px; display: none; }
+        #technique { width: 100%; height: 100px; margin: 10px 0; padding: 10px; font-size: 16px; border-radius: 10px; border: 1px solid #ddd; box-sizing: border-box; }
+        #emotions { margin-top: 20px; }
+        #emotions button { background-color: #a29bfe; margin: 5px; }
+        #emotions button:hover { background-color: #8c7ae6; }
+        #instructions { margin-bottom: 30px; text-align: left; line-height: 1.6; }
+    </style>
 </head>
-
 <body>
+    <h1>Emotion Wheel Challenge</h1>
     <div id="instructions">
         <p>Welcome to our Emotion Wheel Challenge! Today, we'll explore how different emotions impact our actions and decisions. You'll get a chance to spin the wheel, dive into a scenario to discover your emotions, and challenge yourself to apply emotional intelligence techniques effectively. Are you ready to understand and control your emotional responses better? Let's get started!</p>
     </div>
@@ -26,6 +46,72 @@
         <button onclick="submitTechnique()">Submit</button>
     </div>
     <div id="feedback"></div>
-</body>
 
+    <script>
+        const scenarios = [
+            { text: "You just received news that you got a promotion you've been eagerly awaiting.", emotion: "Joy" },
+            { text: "Your close friend cancels plans at the last minute for the third time in a row.", emotion: "Disappointment" },
+            { text: "You discover an unexpected charge on your credit card statement.", emotion: "Surprise" },
+            { text: "You're about to give an important presentation to a large audience.", emotion: "Fear" },
+            { text: "Someone cuts in front of you in a long queue you've been waiting in.", emotion: "Anger" },
+            { text: "You realize you've missed an important deadline at work.", emotion: "Sadness" }
+        ];
+        const emotions = ["Joy", "Anger", "Sadness", "Surprise", "Fear", "Disappointment"];
+        let currentScenario;
+        let selectedEmotion;
+        let currentRotation = 0;
+
+        function spinWheel() {
+            const wheel = document.getElementById('wheel');
+            const spinButton = document.getElementById('spin-button');
+            spinButton.disabled = true;
+            
+            wheel.style.transition = 'none';
+            wheel.style.transform = `rotate(0deg)`;
+            void wheel.offsetWidth;
+            
+            const additionalRotation = Math.floor(Math.random() * 360) + 720;
+            currentRotation += additionalRotation;
+            wheel.style.transition = 'transform 3s cubic-bezier(0.25, 0.1, 0.25, 1)';
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+            
+            setTimeout(() => {
+                currentScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
+                document.getElementById('scenario').style.display = 'block';
+                document.getElementById('scenario').innerHTML = `<p>${currentScenario.text}</p><p>How would you feel in this scenario?</p>`;
+                const emotionsHtml = emotions.map(emotion => 
+                    `<button onclick="selectEmotion('${emotion}')">${emotion}</button>`
+                ).join('');
+                document.getElementById('emotions').innerHTML = emotionsHtml;
+                document.getElementById('eiTechnique').style.display = 'none';
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('technique').value = '';
+                spinButton.disabled = false;
+            }, 3000);
+        }
+
+        function selectEmotion(emotion) {
+            selectedEmotion = emotion;
+            let feedback = '';
+            if (emotion === currentScenario.emotion) {
+                feedback = "Correct! That's the expected emotion for this scenario.";
+            } else {
+                feedback = `Not quite. The expected emotion was ${currentScenario.emotion}. However, emotions can be complex and your response is valid too.`;
+            }
+            document.getElementById('feedback').style.display = 'block';
+            document.getElementById('feedback').innerHTML = feedback;
+            document.getElementById('eiTechnique').style.display = 'block';
+        }
+
+        function submitTechnique() {
+            const technique = document.getElementById('technique').value;
+            if (technique.trim() !== '') {
+                const feedback = `Great job! You identified the emotion as ${selectedEmotion} and suggested the following emotional intelligence technique:<br><br>"${technique}"`;
+                document.getElementById('feedback').innerHTML = feedback;
+            } else {
+                document.getElementById('feedback').innerHTML = "Please enter an emotional intelligence technique before submitting.";
+            }
+        }
+    </script>
+</body>
 </html>
