@@ -1,5 +1,5 @@
 /* Emotion Wheel Challenge Styles */
-body {
+wheel-body {
     font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
@@ -9,11 +9,7 @@ body {
     color: #333;
 }
 
-h1 {
-    color: #4a4a4a;
-}
-
-button {
+wheel-button {
     margin: 10px;
     padding: 12px 24px;
     cursor: pointer;
@@ -25,11 +21,11 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+wheel-button:hover {
     background-color: #5b4bc4;
 }
 
-button:disabled {
+wheel-button:disabled {
     background-color: #b3b3b3;
     cursor: not-allowed;
 }
