@@ -1,101 +1,223 @@
-/* Emotion Wheel Challenge Styles */
-wheel-body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #f5f5f5;
+/** Custom styles for Canvas css **/
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #fff;
     color: #333;
 }
 
-wheel-button {
-    margin: 10px;
-    padding: 12px 24px;
-    cursor: pointer;
-    background-color: #6c5ce7;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    transition: background-color 0.3s;
+.navbar {
+    background-color: #006881;
 }
 
-wheel-button:hover {
-    background-color: #5b4bc4;
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 900;
 }
 
-wheel-button:disabled {
-    background-color: #b3b3b3;
-    cursor: not-allowed;
+.navbar-nav .nav-link {
+    color: #fff;
+    font-weight: 900;
 }
 
-#wheel-container {
-    width: 300px;
-    height: 300px;
-    margin: 30px auto;
+.navbar .navbar-nav .nav-item .nav-link.active {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link.btn-custom {
+    border: 1px solid #fff;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.navbar-nav .nav-item .nav-link.btn-custom:hover {
+    background-color: #fff;
+    color: #006881;
+}
+
+.container-custom {
+    margin: 0rem;
+    padding: 1rem;
+}
+
+.course-overview {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.course-overview-text {
+    max-height: 255px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.course-overview-text.expanded {
+    max-height: none;
+}
+
+.course-overview-buttons {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.course-overview-bar {
+    display: none;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.course-overview-bar .btn {
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0px solid #006881;
+}
+
+.btn-custom-alt {
+    border: 1px solid #006881;
+    color: #006881;
+    transition: background-color 0.3s, color 0.3s;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.btn-custom-alt:hover {
+    background-color: #006881;
+    color: #fff;
+}
+
+.btn-show-more.expanded {
+    background-color: #006881;
+    color: #fff;
+}
+
+.resume-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.btn-resume {
+    background-color: #006881;
+    border-color: #006881;
+    color: #fff;
+}
+
+.btn-resume:hover {
+    background-color: #005672;
+    border-color: #005672;
+    color: #fff;
+}
+
+@media (max-width: 575.98px) {
+    .resume-card {
+        text-align: center;
+    }
+}
+
+.accordion-item {
+    margin-bottom: 0rem;
+}
+
+.accordion-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 1rem;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.completion-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    background-color: transparent;
+    color: grey;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    margin-right: 10px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.completion-icon::before {
+    content: '✔';
+    color: grey;
+}
+
+.toggle-icon {
+    color: #006881;
+    font-size: 1.5rem;
     position: relative;
 }
 
-#wheel {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    background: conic-gradient(
-        #fdcb6e 0deg 60deg,
-        #81ecec 60deg 120deg,
-        #74b9ff 120deg 180deg,
-        #fab1a0 180deg 240deg,
-        #55efc4 240deg 300deg,
-        #ffeaa7 300deg 360deg
-    );
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+.toggle-icon:hover {
+    color: white;
 }
 
-#pointer {
+.toggle-icon:hover::before {
+    content: '';
     position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
+    width: 24px;
+    height: 24px;
+    background-color: #006881;
+    border-radius: 50%;
+    top: -5px;
+    left: -5px;
+    z-index: -1;
 }
 
-#scenario, #feedback, #eiTechnique {
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-top: 30px;
-    display: none;
+.accordion-button .module-title {
+    flex-grow: 1;
+    margin-left: 10px;
 }
 
-#technique {
-    width: 100%;
-    height: 100px;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
+.btn-expand {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    background: none;
+    color: #006881;
 }
 
-#emotions {
-    margin-top: 20px;
+.btn-expand:hover,
+.btn-expand:focus {
+    background: none;
+    color: #006881;
 }
 
-#emotions button {
-    background-color: #a29bfe;
-    margin: 5px;
-}
-
-#emotions button:hover {
-    background-color: #8c7ae6;
-}
-
-#instructions {
-    margin-bottom: 30px;
-    text-align: left;
-    line-height: 1.6;
+footer {
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    padding: 1rem;
 }
