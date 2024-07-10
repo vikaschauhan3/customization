@@ -1,32 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Sleek Pastel Emotion Wheel Challenge</title>
-    
+    <meta name="description" content="Join our comprehensive online learning course to enhance your knowledge across various topics.">
+    <meta name="keywords" content="online learning, education, courses, modules, interactive learning">
 </head>
-<wheel-body>
-    <h1 style="color: #4a4a4a;;">Emotion Wheel Challenge</h1>
-    <div id="instructions">
-        <p>Welcome to our Emotion Wheel Challenge! Today, we'll explore how different emotions impact our actions and decisions. You'll get a chance to spin the wheel, dive into a scenario to discover your emotions, and challenge yourself to apply emotional intelligence techniques effectively. Are you ready to understand and control your emotional responses better? Let's get started!</p>
-    </div>
-    <div id="wheel-container">
-        <div id="wheel"></div>
-        <div id="pointer">▼</div>
-    </div>
-    <wheel-button id="spin-button" onclick="spinWheel()">Spin the Wheel</wheel-button>
-    <div id="scenario"></div>
-    <div id="emotions"></div>
-    <div id="eiTechnique">
-        <p>Suggest an emotional intelligence technique to handle this emotion:</p>
-        <textarea id="technique" placeholder="Enter your technique here. Feel free to provide a detailed explanation."></textarea>
-        <button onclick="submitTechnique()">Submit</button>
-    </div>
-    <div id="feedback"></div>
 
-  <script src="script.js"></script>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand" href="#">Sample Course</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active btn-custom" href="#">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-custom" href="#">Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-custom" href="#">Instructors</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-</wheel-body>
+    <div class="container-custom">
+        <div class="course-overview" id="courseOverview">
+            <div class="course-overview-text" id="courseOverviewText">
+                <h2>Course Overview</h2>
+                <p>This online learning course is designed to provide comprehensive knowledge on various topics. Engage with interactive modules, complete activities, and track your progress to enhance your learning experience. This online learning course is designed to provide comprehensive knowledge on various topics. Engage with interactive modules, complete activities, and track your progress to enhance your learning experience.</p>
+                <p>This online learning course is designed to provide comprehensive knowledge on various topics. Engage with interactive modules, complete activities, and track your progress to enhance your learning experience. This online learning course is designed to provide comprehensive knowledge on various topics. Engage with interactive modules, This online learning course is designed to provide comprehensive knowledge on various topics. Engage with interactive modules, </p>
+            </div>
+            <div class="course-overview-buttons">
+                <button class="btn btn-custom-alt" id="minimizeOverview">Minimize</button>
+                <button class="btn btn-custom-alt btn-show-more" id="showMore">Show More</button>
+            </div>
+        </div>
+        <div class="course-overview-bar" id="courseOverviewBar">
+            <button class="btn btn-custom-alt" id="expandOverview">+</button>
+        </div>
+
+        <div class="resume-card d-flex flex-column flex-sm-row justify-content-between align-items-center">
+            <h5 class="mb-3 mb-sm-0"><span style="font-weight: 900;">Pick up where you left off</span></h5>
+            <button class="btn btn-resume"><span style="font-weight: 900;">Resume Course</span</button>
+        </div>
+
+        <div class="text-right mb-2">
+            <button class="btn btn-custom-alt" id="toggleAll">Expand All</button>
+        </div>
+
+        <div id="dp-wrapper" class="dp-wrapper">
+    <div class="dp-module-list dp-module-list-current-completion dp-module-list-flag-completed dp-module-list-show-locked dp-auto-update dp-quick-links-all undefined dp-quick-links-panels-accordion-plus">
+        <nav class="dp-module-list-basic">
+            <ul class="fa-ul">
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+        <footer>
+            <p>&copy; 2024 eduZ. All rights reserved.</p>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+        <script src="script.js"></script>    
+</body>
+
 </html>
