@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <title>Sleek Pastel Emotion Wheel Challenge</title>
     <meta name="description" content="Join our comprehensive online learning course to enhance your knowledge across various topics.">
     <meta name="keywords" content="online learning, education, courses, modules, interactive learning">
+    
 </head>
 
 <body>
@@ -59,15 +59,62 @@
             <button class="btn btn-custom-alt" id="toggleAll">Expand All</button>
         </div>
 
-        <div id="dp-wrapper" class="dp-wrapper">
-    <div class="dp-module-list dp-module-list-current-completion dp-module-list-flag-completed dp-module-list-show-locked dp-auto-update dp-quick-links-all undefined dp-quick-links-panels-accordion-plus">
-        <nav class="dp-module-list-basic">
-            <ul class="fa-ul">
-                
-            </ul>
-        </nav>
-    </div>
-</div>
+        <div class="accordion" id="courseModules">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="far fa-check-circle"></i>
+                        <span class="module-title">Module 1: Introduction to the Course</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#courseModules">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Lesson 1: Welcome</li>
+                            <li>Lesson 2: Course Structure</li>
+                            <li>Activity: Getting Started</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="far fa-check-circle"></i>
+                        <span class="module-title">Module 2: Deep Dive into the Subject</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#courseModules">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Lesson 1: Advanced Concepts</li>
+                            <li>Lesson 2: Practical Examples</li>
+                            <li>Activity: Hands-on Practice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="far fa-check-circle"></i>
+                        <span class="module-title">Module 3: Practical Applications</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#courseModules">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>Lesson 1: Real-World Scenarios</li>
+                            <li>Lesson 2: Case Studies</li>
+                            <li>Activity: Project Work</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer>
             <p>&copy; 2024 eduZ. All rights reserved.</p>
@@ -76,8 +123,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-        <script src="script.js"></script>    
+        <script src="script.js"></script>
 </body>
 
 </html>
